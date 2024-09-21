@@ -1,0 +1,1551 @@
+// converted by version  [v3.1.0]
+// on Tue Jul 16 12:19:46 EEST 2024
+
+.package health {
+	.aid 0xA0:0x0:0x0:0x0:0x63:0x3:0x1:0xC:0x6;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.8;		//javacard/framework
+	}
+
+	.applet {
+		0xA0:0x0:0x0:0x0:0x63:0x3:0x1:0xC:0x7 Health;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef short[] Consultation/date;
+		// 1
+		instanceFieldRef short Consultation/diagnostic;
+		// 2
+		instanceFieldRef short Consultation/speciality;
+		// 3
+		instanceFieldRef short Health/pinLength;
+		// 4
+		instanceFieldRef Error Health/error;
+		// 5
+		instanceFieldRef Patient Health/patient;
+		// 6
+		instanceFieldRef 1.9 Health/pin;
+		// 7
+		instanceFieldRef short[] Patient/birthDate;
+		// 8
+		instanceFieldRef short Patient/blood;
+		// 9
+		instanceFieldRef short Patient/rH;
+		// 10
+		instanceFieldRef short Patient/diagnostic;
+		// 11
+		instanceFieldRef short Patient/speciality;
+		// 12
+		instanceFieldRef short Patient/donator;
+		// 13
+		instanceFieldRef Consultation[] Patient/consultations;
+		// 14
+		instanceFieldRef short[] Patient/vacationStart;
+		// 15
+		instanceFieldRef short[] Patient/vacationEnd;
+		// 16
+		.classRef Error;
+		// 17
+		virtualMethodRef 1.9.8([BSB)V;		// update([BSB)V
+		// 18
+		virtualMethodRef 1.3.1()V;		// register()V
+		// 19
+		.classRef Health;
+		// 20
+		staticMethodRef Health/<init>([BSB)V;
+		// 21
+		virtualMethodRef 1.9.2()B;		// getTriesRemaining()B
+		// 22
+		virtualMethodRef 1.9.5()V;		// reset()V
+		// 23
+		virtualMethodRef 1.10.1()[B;		// getBuffer()[B
+		// 24
+		virtualMethodRef 1.10.14()Z;		// isISOInterindustryCLA()Z
+		// 25
+		staticMethodRef 1.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 26
+		staticMethodRef Health/verify(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 27
+		staticMethodRef Health/updatePin(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 28
+		staticMethodRef Health/getPatientData(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 29
+		staticMethodRef Health/setPatientData(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 30
+		staticMethodRef Health/setConsultData(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 31
+		staticMethodRef Health/setMedicalVacation(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 32
+		virtualMethodRef 1.10.6()S;		// setIncomingAndReceive()S
+		// 33
+		virtualMethodRef 1.9.1([BSB)Z;		// check([BSB)Z
+		// 34
+		staticMethodRef Error/getSwVerificationFailed()S;
+		// 35
+		virtualMethodRef 1.9.4()Z;		// isValidated()Z
+		// 36
+		staticMethodRef Error/getSwPinVerificationRequired()S;
+		// 37
+		virtualMethodRef 1.10.7()S;		// setOutgoing()S
+		// 38
+		virtualMethodRef 1.10.9(S)V;		// setOutgoingLength(S)V
+		// 39
+		virtualMethodRef Patient/getBirthDate()[S;
+		// 40
+		virtualMethodRef Patient/getBlood()S;
+		// 41
+		virtualMethodRef Patient/getRH()S;
+		// 42
+		virtualMethodRef Patient/getDiagnostic()S;
+		// 43
+		virtualMethodRef Patient/getSpeciality()S;
+		// 44
+		virtualMethodRef Patient/getDonator()S;
+		// 45
+		virtualMethodRef Patient/getConsultations()[Lhealth/Consultation;;
+		// 46
+		virtualMethodRef Patient/getVacationStart()[S;
+		// 47
+		virtualMethodRef Patient/getVacationEnd()[S;
+		// 48
+		virtualMethodRef 1.10.4(SS)V;		// sendBytes(SS)V
+		// 49
+		virtualMethodRef Consultation/getDate()[S;
+		// 50
+		virtualMethodRef Consultation/getDiagnostic()S;
+		// 51
+		virtualMethodRef Consultation/getSpeciality()S;
+		// 52
+		staticMethodRef Error/getSwWrongType()S;
+		// 53
+		virtualMethodRef Patient/setDiagnostic(S)V;
+		// 54
+		virtualMethodRef Patient/setSpeciality(S)V;
+		// 55
+		staticMethodRef Error/getSwWrongValue()S;
+		// 56
+		virtualMethodRef Patient/setDonator(S)V;
+		// 57
+		.classRef Consultation;
+		// 58
+		staticMethodRef Consultation/<init>()V;
+		// 59
+		virtualMethodRef Consultation/setDate([S)V;
+		// 60
+		virtualMethodRef Consultation/setDiagnostic(S)V;
+		// 61
+		virtualMethodRef Consultation/setSpeciality(S)V;
+		// 62
+		virtualMethodRef Patient/invalidConsult(Lhealth/Consultation;)Z;
+		// 63
+		staticMethodRef Error/getSwInvalidConsultation()S;
+		// 64
+		virtualMethodRef Patient/setNewConsultation(Lhealth/Consultation;)V;
+		// 65
+		staticMethodRef Error/getSwInvalidVacationDate()S;
+		// 66
+		staticMethodRef Error/getSwMaxVacationDays()S;
+		// 67
+		virtualMethodRef Patient/setVacationStart([S)V;
+		// 68
+		virtualMethodRef Patient/setVacationEnd([S)V;
+		// 69
+		staticMethodRef Error/<init>()V;
+		// 70
+		staticMethodRef 1.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 71
+		.classRef Patient;
+		// 72
+		staticMethodRef Patient/<init>()V;
+		// 73
+		staticMethodRef 0.0.0()V;		// java/lang/Object.<init>()V
+		// 74
+		.classRef 1.9;		// javacard/framework/OwnerPIN
+		// 75
+		staticMethodRef Error/getPinTryLimit()B;
+		// 76
+		staticMethodRef Error/getMaxPinSize()B;
+		// 77
+		staticMethodRef 1.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+	}
+
+	.class public Command 0 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			public static final byte Health_CLA = -128;		// B
+			public static final byte VERIFY = 32;		// B
+			public static final byte UPDATE_PIN = 48;		// B
+			public static final byte GET_PATIENT = 64;		// B
+			public static final byte SET_PATIENT = 65;		// B
+			public static final byte SET_CONSULT = 66;		// B
+			public static final byte SET_VACATION = 67;		// B
+		}
+
+		.publicMethodTable 1 1 {
+			equals(Ljava/lang/Object;)Z 0;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private <init>()V {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 73;		// java/lang/Object.<init>()V
+					return;
+		}
+
+	}
+
+	.class public Consultation 1 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			private short[] date 0;		// [S
+			private short diagnostic 1;		// S
+			private short speciality 2;		// S
+		}
+
+		.publicMethodTable 1 7 {
+			equals(Ljava/lang/Object;)Z 0;
+			setDate([S)V 255;
+			getDate()[S 255;
+			setDiagnostic(S)V 255;
+			getDiagnostic()S 255;
+			setSpeciality(S)V 255;
+			getSpeciality()S 255;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 73;		// java/lang/Object.<init>()V
+					aload_0;
+					sconst_3;
+					newarray 12;
+					putfield_a 0;		// reference health/Consultation.date
+					sconst_0;
+					putfield_s_this 1;		// short health/Consultation.diagnostic
+					sconst_0;
+					putfield_s_this 2;		// short health/Consultation.speciality
+					return;
+		}
+
+		.method public setDate([S)V 1 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_1;
+					putfield_a_this 0;		// reference health/Consultation.date
+					return;
+		}
+
+		.method public getDate()[S 2 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 0;		// reference health/Consultation.date
+					areturn;
+		}
+
+		.method public setDiagnostic(S)V 3 {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					putfield_s_this 1;		// short health/Consultation.diagnostic
+					return;
+		}
+
+		.method public getDiagnostic()S 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 1;		// short health/Consultation.diagnostic
+					sreturn;
+		}
+
+		.method public setSpeciality(S)V 5 {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					putfield_s_this 2;		// short health/Consultation.speciality
+					return;
+		}
+
+		.method public getSpeciality()S 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 2;		// short health/Consultation.speciality
+					sreturn;
+		}
+
+	}
+
+	.class public Error 2 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			static final byte PIN_TRY_LIMIT = 3;		// B
+			static final byte MAX_PIN_SIZE = 8;		// B
+			static final short SW_VERIFICATION_FAILED = 25344;		// S
+			static final short SW_WRONG_TYPE = 25345;		// S
+			static final short SW_WRONG_VALUE = 25346;		// S
+			static final short SW_INVALID_CONSULTATION = 25347;		// S
+			static final short SW_INVALID_VACATION_DATE = 25348;		// S
+			static final short SW_MAX_VACATION_DAYS = 25349;		// S
+			static final short SW_PIN_VERIFICATION_REQUIRED = 25350;		// S
+			static final short SW_BAD_BLOOD = 25351;		// S
+		}
+
+		.publicMethodTable 1 1 {
+			equals(Ljava/lang/Object;)Z 0;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 73;		// java/lang/Object.<init>()V
+					return;
+		}
+
+		.method public static getPinTryLimit()B 1 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sconst_3;
+					sreturn;
+		}
+
+		.method public static getMaxPinSize()B 2 {
+			.stack 1;
+			.locals 0;
+
+				L0:	bspush 8;
+					sreturn;
+		}
+
+		.method public static getSwVerificationFailed()S 3 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25344;
+					sreturn;
+		}
+
+		.method public static getSwWrongType()S 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25345;
+					sreturn;
+		}
+
+		.method public static getSwWrongValue()S 5 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25346;
+					sreturn;
+		}
+
+		.method public static getSwInvalidConsultation()S 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25347;
+					sreturn;
+		}
+
+		.method public static getSwInvalidVacationDate()S 7 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25348;
+					sreturn;
+		}
+
+		.method public static getSwMaxVacationDays()S 8 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25349;
+					sreturn;
+		}
+
+		.method public static getSwPinVerificationRequired()S 9 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25350;
+					sreturn;
+		}
+
+		.method public static getSwBadBlood()S 10 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sspush 25351;
+					sreturn;
+		}
+
+	}
+
+	.class public Health 3 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 Command command 0;		// Lhealth/Command;
+			 Error error 1;		// Lhealth/Error;
+			private 1.9 pin 2;		// Ljavacard/framework/OwnerPIN;
+			 Patient patient 3;		// Lhealth/Patient;
+			 short pinLength 4;		// S
+		}
+
+		.publicMethodTable 4 8 {
+			equals(Ljava/lang/Object;)Z 0;
+			register()V 1;
+			register([BSB)V 2;
+			selectingApplet()Z 3;
+			deselect()V 4;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable; 5;
+			select()Z 6;
+			process(Ljavacard/framework/APDU;)V 7;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private <init>([BSB)V {
+			.stack 5;
+			.locals 3;
+
+				L0:	aload_0;
+					invokespecial 70;		// javacard/framework/Applet.<init>()V
+					sconst_0;
+					putfield_s_this 3;		// short health/Health.pinLength
+					aload_0;
+					new 16;		// health/Error
+					dup;
+					invokespecial 69;		// health/Error.<init>()V
+					putfield_a 4;		// reference health/Health.error
+					aload_0;
+					new 71;		// health/Patient
+					dup;
+					invokespecial 72;		// health/Patient.<init>()V
+					putfield_a 5;		// reference health/Health.patient
+					aload_0;
+					new 74;		// javacard/framework/OwnerPIN
+					dup;
+					invokestatic 75;		// health/Error.getPinTryLimit()B
+					invokestatic 76;		// health/Error.getMaxPinSize()B
+					invokespecial 77;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 6;		// reference health/Health.pin
+					aload_1;
+					sload_2;
+					baload;
+					sstore 4;
+				L1:	sload_2;
+					sload 4;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 5;
+				L2:	sload_2;
+					sload 5;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 6;
+				L3:	getfield_a_this 6;		// reference health/Health.pin
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					sload 6;
+					invokevirtual 17;		// update([BSB)V
+					aload_0;
+					invokevirtual 18;		// register()V
+					return;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 4;
+			.locals 0;
+
+				L0:	new 19;		// health/Health
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 20;		// health/Health.<init>([BSB)V
+					return;
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 21;		// getTriesRemaining()B
+					ifne L2;
+				L1:	sconst_0;
+					sreturn;
+				L2:	sconst_1;
+					sreturn;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 22;		// reset()V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 24;		// isISOInterindustryCLA()Z
+					ifeq L5;
+				L2:	aload_2;
+					sconst_1;
+					baload;
+					bspush -92;
+					if_scmpne L4;
+				L3:	return;
+				L4:	sspush 28160;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_2;
+					sconst_0;
+					baload;
+					bspush -128;
+					if_scmpeq L7;
+				L6:	sspush 28160;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	aload_2;
+					sconst_1;
+					baload;
+					slookupswitch L14 6 32 L8 48 L9 64 L10 65 L11 66 L12 67 L13;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 26;		// health/Health.verify(Ljavacard/framework/APDU;)V
+					return;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 27;		// health/Health.updatePin(Ljavacard/framework/APDU;)V
+					return;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 28;		// health/Health.getPatientData(Ljavacard/framework/APDU;)V
+					return;
+				L11:	aload_0;
+					aload_1;
+					invokespecial 29;		// health/Health.setPatientData(Ljavacard/framework/APDU;)V
+					return;
+				L12:	aload_0;
+					aload_1;
+					invokespecial 30;		// health/Health.setConsultData(Ljavacard/framework/APDU;)V
+					return;
+				L13:	aload_0;
+					aload_1;
+					invokespecial 31;		// health/Health.setMedicalVacation(Ljavacard/framework/APDU;)V
+					return;
+				L14:	sspush 27904;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+					return;
+		}
+
+		.method private verify(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 32;		// setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L2:	getfield_a_this 6;		// reference health/Health.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 33;		// check([BSB)Z
+					ifne L4;
+				L3:	invokestatic 34;		// health/Error.getSwVerificationFailed()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	sload_3;
+					putfield_s_this 3;		// short health/Health.pinLength
+					return;
+		}
+
+		.method private updatePin(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 7;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 35;		// isValidated()Z
+					ifne L2;
+				L1:	invokestatic 36;		// health/Error.getSwPinVerificationRequired()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 32;		// setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L4:	aload_2;
+					sconst_4;
+					baload;
+					sstore 4;
+				L5:	sload 4;
+					s2i;
+					getfield_s_this 3;		// short health/Health.pinLength
+					s2i;
+					invokestatic 76;		// health/Error.getMaxPinSize()B
+					s2i;
+					iadd;
+					icmp;
+					ifgt L7;
+				L6:	sload_3;
+					s2i;
+					getfield_s_this 3;		// short health/Health.pinLength
+					s2i;
+					invokestatic 76;		// health/Error.getMaxPinSize()B
+					s2i;
+					iadd;
+					icmp;
+					ifle L8;
+				L7:	sspush 26368;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	getfield_s_this 3;		// short health/Health.pinLength
+					newarray 11;
+					astore 5;
+				L9:	sload_3;
+					getfield_s_this 3;		// short health/Health.pinLength
+					ssub;
+					sstore 6;
+				L10:	sload 6;
+					newarray 11;
+					astore 7;
+				L11:	sconst_0;
+					sstore 8;
+				L12:	goto L14;
+				L13:	aload 5;
+					sload 8;
+					aload_2;
+					sconst_5;
+					sload 8;
+					sadd;
+					baload;
+					bastore;
+					sinc 8 1;
+				L14:	sload 8;
+					getfield_s_this 3;		// short health/Health.pinLength
+					if_scmplt L13;
+				L15:	getfield_s_this 3;		// short health/Health.pinLength
+					sstore 8;
+				L16:	goto L18;
+				L17:	aload 7;
+					sload 8;
+					getfield_s_this 3;		// short health/Health.pinLength
+					ssub;
+					aload_2;
+					sconst_5;
+					sload 8;
+					sadd;
+					baload;
+					bastore;
+					sinc 8 1;
+				L18:	sload 8;
+					sload_3;
+					if_scmplt L17;
+				L19:	getfield_a_this 6;		// reference health/Health.pin
+					aload_2;
+					sconst_5;
+					getfield_s_this 3;		// short health/Health.pinLength
+					s2b;
+					invokevirtual 33;		// check([BSB)Z
+					ifne L21;
+				L20:	invokestatic 34;		// health/Error.getSwVerificationFailed()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L21:	getfield_a_this 6;		// reference health/Health.pin
+					aload 7;
+					sconst_0;
+					sload 6;
+					s2b;
+					invokevirtual 17;		// update([BSB)V
+					sload 6;
+					putfield_s_this 3;		// short health/Health.pinLength
+					return;
+		}
+
+		.method private getPatientData(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 8;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 35;		// isValidated()Z
+					ifne L2;
+				L1:	invokestatic 36;		// health/Error.getSwPinVerificationRequired()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 37;		// setOutgoing()S
+					sstore_3;
+				L4:	sload_3;
+					bspush 29;
+					if_scmpge L6;
+				L5:	sspush 26368;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	aload_1;
+					bspush 29;
+					invokevirtual 38;		// setOutgoingLength(S)V
+					sconst_0;
+					sstore 4;
+				L7:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 39;		// getBirthDate()[S
+					astore 5;
+				L8:	sconst_0;
+					sstore 6;
+				L9:	goto L11;
+				L10:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 5;
+					sload 6;
+					saload;
+					s2b;
+					bastore;
+					sinc 6 1;
+				L11:	sload 6;
+					sconst_3;
+					if_scmplt L10;
+				L12:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 40;		// getBlood()S
+					s2b;
+					bastore;
+					aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 41;		// getRH()S
+					s2b;
+					bastore;
+					aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 42;		// getDiagnostic()S
+					s2b;
+					bastore;
+					aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 43;		// getSpeciality()S
+					s2b;
+					bastore;
+					aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 44;		// getDonator()S
+					s2b;
+					bastore;
+					getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 45;		// getConsultations()[Lhealth/Consultation;
+					astore 6;
+				L13:	sconst_0;
+					sstore 7;
+				L14:	goto L22;
+				L15:	aload 6;
+					sload 7;
+					aaload;
+					invokevirtual 49;		// getDate()[S
+					astore 8;
+				L16:	sconst_0;
+					sstore 9;
+				L17:	goto L19;
+				L18:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 8;
+					sload 9;
+					saload;
+					s2b;
+					bastore;
+					sinc 9 1;
+				L19:	sload 9;
+					sconst_3;
+					if_scmplt L18;
+				L20:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 6;
+					sload 7;
+					aaload;
+					invokevirtual 50;		// getDiagnostic()S
+					s2b;
+					bastore;
+					aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 6;
+					sload 7;
+					aaload;
+					invokevirtual 51;		// getSpeciality()S
+					s2b;
+					bastore;
+				L21:	sinc 7 1;
+				L22:	sload 7;
+					sconst_3;
+					if_scmplt L15;
+				L23:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 46;		// getVacationStart()[S
+					astore 7;
+				L24:	sconst_0;
+					sstore 8;
+				L25:	goto L27;
+				L26:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 7;
+					sload 8;
+					saload;
+					s2b;
+					bastore;
+					sinc 8 1;
+				L27:	sload 8;
+					sconst_3;
+					if_scmplt L26;
+				L28:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 47;		// getVacationEnd()[S
+					astore 8;
+				L29:	sconst_0;
+					sstore 9;
+				L30:	goto L32;
+				L31:	aload_2;
+					sload 4;
+					dup;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload 8;
+					sload 9;
+					saload;
+					s2b;
+					bastore;
+					sinc 9 1;
+				L32:	sload 9;
+					sconst_3;
+					if_scmplt L31;
+				L33:	aload_1;
+					sconst_0;
+					bspush 29;
+					invokevirtual 48;		// sendBytes(SS)V
+					return;
+		}
+
+		.method private setPatientData(Ljavacard/framework/APDU;)V {
+			.stack 2;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 35;		// isValidated()Z
+					ifne L2;
+				L1:	invokestatic 36;		// health/Error.getSwPinVerificationRequired()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+				L4:	aload_1;
+					invokevirtual 32;		// setIncomingAndReceive()S
+					s2b;
+					sstore 4;
+				L5:	aload_2;
+					sconst_5;
+					baload;
+					sstore 5;
+				L6:	aload_2;
+					sconst_2;
+					baload;
+					sstore 6;
+				L7:	sload 6;
+					sconst_2;
+					if_scmple L9;
+				L8:	invokestatic 52;		// health/Error.getSwWrongType()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	sload 6;
+					ifne L11;
+				L10:	getfield_a_this 5;		// reference health/Health.patient
+					sload 5;
+					invokevirtual 53;		// setDiagnostic(S)V
+				L11:	sload 6;
+					sconst_1;
+					if_scmpne L13;
+				L12:	getfield_a_this 5;		// reference health/Health.patient
+					sload 5;
+					invokevirtual 54;		// setSpeciality(S)V
+				L13:	sload 6;
+					sconst_2;
+					if_scmpne L18;
+				L14:	sload 5;
+					ifeq L17;
+				L15:	sload 5;
+					sconst_1;
+					if_scmpeq L17;
+				L16:	invokestatic 55;		// health/Error.getSwWrongValue()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L17:	getfield_a_this 5;		// reference health/Health.patient
+					sload 5;
+					invokevirtual 56;		// setDonator(S)V
+				L18:	return;
+		}
+
+		.method private setConsultData(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 35;		// isValidated()Z
+					ifne L2;
+				L1:	invokestatic 36;		// health/Error.getSwPinVerificationRequired()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+				L4:	aload_1;
+					invokevirtual 32;		// setIncomingAndReceive()S
+					s2b;
+					sstore 4;
+				L5:	sload_3;
+					sconst_5;
+					if_scmpne L7;
+				L6:	sload 4;
+					sconst_5;
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	new 57;		// health/Consultation
+					dup;
+					invokespecial 58;		// health/Consultation.<init>()V
+					astore 5;
+				L9:	sconst_3;
+					newarray 12;
+					astore 6;
+				L10:	sconst_0;
+					sstore 7;
+				L11:	goto L13;
+				L12:	aload 6;
+					sload 7;
+					aload_2;
+					sconst_5;
+					sload 7;
+					sadd;
+					baload;
+					sastore;
+					sinc 7 1;
+				L13:	sload 7;
+					sconst_3;
+					if_scmplt L12;
+				L14:	aload 5;
+					aload 6;
+					invokevirtual 59;		// setDate([S)V
+					aload 5;
+					aload_2;
+					bspush 8;
+					baload;
+					invokevirtual 60;		// setDiagnostic(S)V
+					aload 5;
+					aload_2;
+					bspush 9;
+					baload;
+					invokevirtual 61;		// setSpeciality(S)V
+					getfield_a_this 5;		// reference health/Health.patient
+					aload 5;
+					invokevirtual 62;		// invalidConsult(Lhealth/Consultation;)Z
+					ifeq L16;
+				L15:	invokestatic 63;		// health/Error.getSwInvalidConsultation()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	getfield_a_this 5;		// reference health/Health.patient
+					aload 5;
+					invokevirtual 64;		// setNewConsultation(Lhealth/Consultation;)V
+					return;
+		}
+
+		.method private setMedicalVacation(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 9;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	getfield_a_this 6;		// reference health/Health.pin
+					invokevirtual 35;		// isValidated()Z
+					ifne L2;
+				L1:	invokestatic 36;		// health/Error.getSwPinVerificationRequired()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 23;		// getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+				L4:	aload_1;
+					invokevirtual 32;		// setIncomingAndReceive()S
+					s2b;
+					sstore 4;
+				L5:	sload_3;
+					bspush 6;
+					if_scmpne L7;
+				L6:	sload 4;
+					bspush 6;
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	sconst_3;
+					newarray 12;
+					astore 5;
+				L9:	sconst_3;
+					newarray 12;
+					astore 6;
+				L10:	sconst_0;
+					sstore 7;
+				L11:	goto L13;
+				L12:	aload 5;
+					sload 7;
+					aload_2;
+					sconst_5;
+					sload 7;
+					sadd;
+					baload;
+					sastore;
+					aload 6;
+					sload 7;
+					aload_2;
+					sconst_5;
+					sload 7;
+					sadd;
+					sconst_3;
+					sadd;
+					baload;
+					sastore;
+					sinc 7 1;
+				L13:	sload 7;
+					sconst_3;
+					if_scmplt L12;
+				L14:	aload 5;
+					sconst_0;
+					saload;
+					aload 6;
+					sconst_0;
+					saload;
+					if_scmple L16;
+				L15:	invokestatic 65;		// health/Error.getSwInvalidVacationDate()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	aload 5;
+					sconst_1;
+					saload;
+					aload 6;
+					sconst_1;
+					saload;
+					if_scmpeq L18;
+				L17:	invokestatic 65;		// health/Error.getSwInvalidVacationDate()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L18:	aload 5;
+					sconst_2;
+					saload;
+					aload 6;
+					sconst_2;
+					saload;
+					if_scmpeq L20;
+				L19:	invokestatic 65;		// health/Error.getSwInvalidVacationDate()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L20:	sconst_0;
+					sstore 7;
+				L21:	sconst_0;
+					sstore 8;
+				L22:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 46;		// getVacationStart()[S
+					astore 9;
+				L23:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 47;		// getVacationEnd()[S
+					astore 10;
+				L24:	aload 5;
+					sconst_1;
+					saload;
+					aload 9;
+					sconst_1;
+					saload;
+					if_scmpne L27;
+				L25:	aload 5;
+					sconst_2;
+					saload;
+					aload 9;
+					sconst_2;
+					saload;
+					if_scmpne L27;
+				L26:	aload 10;
+					sconst_0;
+					saload;
+					aload 9;
+					sconst_0;
+					saload;
+					ssub;
+					sconst_1;
+					sadd;
+					sstore 8;
+				L27:	aload 6;
+					sconst_0;
+					saload;
+					aload 5;
+					sconst_0;
+					saload;
+					ssub;
+					sconst_1;
+					sadd;
+					sstore 7;
+					sload 7;
+					s2i;
+					sload 8;
+					s2i;
+					iadd;
+					bipush 10;
+					icmp;
+					ifle L30;
+				L28:	getfield_a_this 5;		// reference health/Health.patient
+					invokevirtual 42;		// getDiagnostic()S
+					ifne L30;
+				L29:	invokestatic 66;		// health/Error.getSwMaxVacationDays()S
+					invokestatic 25;		// javacard/framework/ISOException.throwIt(S)V
+				L30:	getfield_a_this 5;		// reference health/Health.patient
+					aload 5;
+					invokevirtual 67;		// setVacationStart([S)V
+					getfield_a_this 5;		// reference health/Health.patient
+					aload 6;
+					invokevirtual 68;		// setVacationEnd([S)V
+					return;
+		}
+
+	}
+
+	.class final HealthStrings extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			static final byte[] Package = {104,101,97,108,116,104};		// [B
+			static final byte[] AppletName = {72,101,97,108,116,104};		// [B
+		}
+
+		.publicMethodTable 1 1 {
+			equals(Ljava/lang/Object;)Z 0;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method  <init>()V {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 73;		// java/lang/Object.<init>()V
+					return;
+		}
+
+	}
+
+	.class public Patient 4 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			private short[] birthDate 0;		// [S
+			private Consultation[] consultations 1;		// [Lhealth/Consultation;
+			private short[] vacationStart 2;		// [S
+			private short[] vacationEnd 3;		// [S
+			private short blood 4;		// S
+			private short rH 5;		// S
+			private short diagnostic 6;		// S
+			private short speciality 7;		// S
+			private short donator 8;		// S
+		}
+
+		.publicMethodTable 1 18 {
+			equals(Ljava/lang/Object;)Z 0;
+			getBirthDate()[S 255;
+			getBlood()S 255;
+			getRH()S 255;
+			getDiagnostic()S 255;
+			setDiagnostic(S)V 255;
+			getSpeciality()S 255;
+			setSpeciality(S)V 255;
+			getDonator()S 255;
+			setDonator(S)V 255;
+			getConsultations()[Lhealth/Consultation; 255;
+			setConsultations([Lhealth/Consultation;)V 255;
+			getVacationStart()[S 255;
+			setVacationStart([S)V 255;
+			getVacationEnd()[S 255;
+			setVacationEnd([S)V 255;
+			setNewConsultation(Lhealth/Consultation;)V 255;
+			invalidConsult(Lhealth/Consultation;)Z 255;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 4;
+			.locals 1;
+
+				L0:	aload_0;
+					invokespecial 73;		// java/lang/Object.<init>()V
+					aload_0;
+					sconst_3;
+					newarray 12;
+					putfield_a 7;		// reference health/Patient.birthDate
+					sconst_0;
+					putfield_s_this 8;		// short health/Patient.blood
+					sconst_0;
+					putfield_s_this 9;		// short health/Patient.rH
+					sconst_0;
+					putfield_s_this 10;		// short health/Patient.diagnostic
+					sconst_0;
+					putfield_s_this 11;		// short health/Patient.speciality
+					sconst_0;
+					putfield_s_this 12;		// short health/Patient.donator
+					aload_0;
+					sconst_3;
+					anewarray 57;		// health/Consultation
+					putfield_a 13;		// reference health/Patient.consultations
+					sconst_0;
+					sstore_1;
+				L1:	goto L3;
+				L2:	getfield_a_this 13;		// reference health/Patient.consultations
+					sload_1;
+					new 57;		// health/Consultation
+					dup;
+					invokespecial 58;		// health/Consultation.<init>()V
+					aastore;
+					sinc 1 1;
+				L3:	sload_1;
+					sconst_3;
+					if_scmplt L2;
+				L4:	aload_0;
+					sconst_3;
+					newarray 12;
+					putfield_a 14;		// reference health/Patient.vacationStart
+					aload_0;
+					sconst_3;
+					newarray 12;
+					putfield_a 15;		// reference health/Patient.vacationEnd
+					return;
+		}
+
+		.method public getBirthDate()[S 1 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 7;		// reference health/Patient.birthDate
+					areturn;
+		}
+
+		.method public getBlood()S 2 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 8;		// short health/Patient.blood
+					sreturn;
+		}
+
+		.method public getRH()S 3 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 9;		// short health/Patient.rH
+					sreturn;
+		}
+
+		.method public getDiagnostic()S 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 10;		// short health/Patient.diagnostic
+					sreturn;
+		}
+
+		.method public setDiagnostic(S)V 5 {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					putfield_s_this 10;		// short health/Patient.diagnostic
+					return;
+		}
+
+		.method public getSpeciality()S 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 11;		// short health/Patient.speciality
+					sreturn;
+		}
+
+		.method public setSpeciality(S)V 7 {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					putfield_s_this 11;		// short health/Patient.speciality
+					return;
+		}
+
+		.method public getDonator()S 8 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_s_this 12;		// short health/Patient.donator
+					sreturn;
+		}
+
+		.method public setDonator(S)V 9 {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					putfield_s_this 12;		// short health/Patient.donator
+					return;
+		}
+
+		.method public getConsultations()[Lhealth/Consultation; 10 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 13;		// reference health/Patient.consultations
+					areturn;
+		}
+
+		.method public setConsultations([Lhealth/Consultation;)V 11 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_1;
+					putfield_a_this 13;		// reference health/Patient.consultations
+					return;
+		}
+
+		.method public getVacationStart()[S 12 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 14;		// reference health/Patient.vacationStart
+					areturn;
+		}
+
+		.method public setVacationStart([S)V 13 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_1;
+					putfield_a_this 14;		// reference health/Patient.vacationStart
+					return;
+		}
+
+		.method public getVacationEnd()[S 14 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 15;		// reference health/Patient.vacationEnd
+					areturn;
+		}
+
+		.method public setVacationEnd([S)V 15 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_1;
+					putfield_a_this 15;		// reference health/Patient.vacationEnd
+					return;
+		}
+
+		.method public setNewConsultation(Lhealth/Consultation;)V 16 {
+			.stack 3;
+			.locals 2;
+
+				L0:	getfield_a_this 13;		// reference health/Patient.consultations
+					sconst_1;
+					aaload;
+					astore_2;
+				L1:	getfield_a_this 13;		// reference health/Patient.consultations
+					sconst_2;
+					aaload;
+					astore_3;
+				L2:	getfield_a_this 13;		// reference health/Patient.consultations
+					sconst_0;
+					aload_2;
+					aastore;
+					getfield_a_this 13;		// reference health/Patient.consultations
+					sconst_1;
+					aload_3;
+					aastore;
+					getfield_a_this 13;		// reference health/Patient.consultations
+					sconst_2;
+					aload_1;
+					aastore;
+					return;
+		}
+
+		.method public invalidConsult(Lhealth/Consultation;)Z 17 {
+			.stack 3;
+			.locals 3;
+
+				L0:	sconst_0;
+					sstore_2;
+				L1:	goto L12;
+				L2:	aload_1;
+					invokevirtual 51;		// getSpeciality()S
+					getfield_a_this 13;		// reference health/Patient.consultations
+					sload_2;
+					aaload;
+					invokevirtual 51;		// getSpeciality()S
+					if_scmpne L11;
+				L3:	getfield_s_this 10;		// short health/Patient.diagnostic
+					ifeq L6;
+				L4:	getfield_s_this 10;		// short health/Patient.diagnostic
+					sconst_1;
+					if_scmpne L11;
+				L5:	getfield_s_this 11;		// short health/Patient.speciality
+					aload_1;
+					invokevirtual 51;		// getSpeciality()S
+					if_scmpeq L11;
+				L6:	aload_1;
+					invokevirtual 49;		// getDate()[S
+					astore_3;
+				L7:	getfield_a_this 13;		// reference health/Patient.consultations
+					sload_2;
+					aaload;
+					invokevirtual 49;		// getDate()[S
+					astore 4;
+				L8:	aload_3;
+					sconst_1;
+					saload;
+					aload 4;
+					sconst_1;
+					saload;
+					if_scmpne L11;
+				L9:	aload_3;
+					sconst_2;
+					saload;
+					aload 4;
+					sconst_2;
+					saload;
+					if_scmpne L11;
+				L10:	sconst_1;
+					sreturn;
+				L11:	sinc 2 1;
+				L12:	sload_2;
+					sconst_3;
+					if_scmplt L2;
+				L13:	sconst_0;
+					sreturn;
+		}
+
+	}
+
+}
